@@ -4,7 +4,7 @@ from graphic_arts.start_game_banner import run_screensaver
 
 DEFAULT_ATTACK = 5
 DEFAULT_DEFENCE = 10
-DEFAULT_STAMINA = 80  
+DEFAULT_STAMINA = 80
 
 
 class Character:
@@ -13,18 +13,18 @@ class Character:
     RANGE_VALUE_DEFENCE = (1, 5)
     SPECIAL_BUFF = 15
     SPECIAL_SKILL = 'Удача'
-    
+
     def __init__(self, name):
         self.name = name
-    
+
     def attack(self):
         value_attack = DEFAULT_ATTACK + randint(*self.RANGE_VALUE_ATTACK)
         return (f'{self.name} нанёс противнику урон, равный {value_attack}')
-    
+
     def defence(self):
         value_defence = DEFAULT_DEFENCE + randint(*self.RANGE_VALUE_DEFENCE)
         return (f'{self.name} блокировал {value_defence} ед. урона.')
-    
+
     def special(self):
         return (f'{self.name} применил специальное умение '
                 f'"{self.SPECIAL_SKILL} {self.SPECIAL_BUFF}".')
@@ -87,9 +87,9 @@ def choice_char_class(char_name: str) -> Character:
     классом персонажа.
     """
     game_classes = {'warrior': Warrior, 'mage': Mage, 'healer': Healer}
-    
-    approve_choice: str  = None
-    
+
+    approve_choice = None
+
     while approve_choice != 'y':
         selected_class = input('Введи название персонажа, '
                                'за которого хочешь играть: Воитель — warrior, '
